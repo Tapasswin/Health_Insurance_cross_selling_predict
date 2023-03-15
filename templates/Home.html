@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+
+
+</head>
+
+<body>
+ <div class="login">
+	<h1>Health Insurance Cross-Selling Prediction</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}" method="post">
+      <input type="text" name="Gender" placeholder="Gender" required="required" /><br>
+    	<input type="text" name="Age" placeholder="Age" required="required" /><br>
+        <input type="text" name="Driving License" placeholder="Driving_License" required="required" /><br>
+        <input type="text" name="Region_Code" placeholder="Region_Code" required="required" /><br>
+        <input type="text" name="Previously_Insured" placeholder="Previously_Insured" required="required" /><br>
+        <input type="text" name="Vehicle_Age" placeholder="Vehicle_Age" required="required" /><br>
+        <input type="text" name="Vehicle_Damage" placeholder="Vehicle_Damage" required="required" /><br>
+        <input type="text" name="Annual_Premium" placeholder="Annual_Premium" required="required" /><br>
+        <input type="text" name="Policy_Sales_Channel" placeholder="Policy_Sales_Channel" required="required" /><br>
+        <input type="text" name="Vintage" placeholder="Vintage" required="required" /><br>
+
+
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+
+
+ </div>
+ {{prediction_text}}
+
+</body>
+</html>
