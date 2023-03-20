@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>ML API</title>
+  <title>Prediction API</title>
 <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
 
 
@@ -11,24 +11,65 @@
 
 <body>
  <div class="login">
-	<h1>Health Insurance Cross-Selling Prediction</h1>
+	<h1 style="color:Blue">Health Insurance Cross-Sell Prediction</h1>
 
      <!-- Main Input For Receiving Query to our ML -->
     <form action="{{ url_for('predict')}}" method="post">
-      <input type="text" name="Gender" placeholder="Gender" required="required" /><br>
-    	<input type="text" name="Age" placeholder="Age" required="required" /><br>
-        <input type="text" name="Driving License" placeholder="Driving_License" required="required" /><br>
-        <input type="text" name="Region_Code" placeholder="Region_Code" required="required" /><br>
-        <input type="text" name="Previously_Insured" placeholder="Previously_Insured" required="required" /><br>
-        <input type="text" name="Vehicle_Age" placeholder="Vehicle_Age" required="required" /><br>
-        <input type="text" name="Vehicle_Damage" placeholder="Vehicle_Damage" required="required" /><br>
-        <input type="text" name="Annual_Premium" placeholder="Annual_Premium" required="required" /><br>
-        <input type="text" name="Policy_Sales_Channel" placeholder="Policy_Sales_Channel" required="required" /><br>
-        <input type="text" name="Vintage" placeholder="Vintage" required="required" /><br>
+        <table>
+        <tr><td>Gender*</td>
+            <td>
+            <select name="Gender" id="Gender" style="width:168px;text-align-last:center">
+                <option value=0>Not Selected</option>
+                <option value=1>Male</option>
+                <option value=0>Female</option>
+            </select></td>
+        </tr>
 
+        <tr><td>Age*</td> 
+    	<td><input type="text" name="Age" id="Age" placeholder="Age" required="required" size="20" maxlength="20" autofocus="autofocus" style="width:160px;text-align-last:center" /></td></tr>
+        <tr><td>Driving License*</td>
+        <td><select name="Driving License" id="Driving License" style="width:168px;text-align-last:center">
+                <option value=0>Not Selected</option>
+                <option value=1>Yes</option>
+                <option value=0>No</option>
+            </select></td></tr>
+        <tr><td>Region Code*</td>
+        <td><input type="text" name="Region_Code" id="Region_Code" placeholder="Region_Code" required="required"size="20" maxlength="20" autofocus="autofocus" style="width:160px;text-align-last:center" /></td></tr>
+        <tr><td>Previously Insured*</td>
+            <td>
+            <select name="Previously_Insured" id="Previously_Insured" style="width:168px;text-align-last:center">
+                <option value=0>Not Selected</option>
+                <option value=1>Yes</option>
+                <option value=0>No</option>
+            </select></td>
+        </tr>
+        <tr><td>Vehicle Age*</td>
+            <td>
+            <select name="Vehicle_age" id="Vehicle_age" style="width:168px;text-align-last:center">
+                <option value=0>Not Selected</option>
+                <option value=1>less than 1 Year</option>
+                <option value=0>1 to 2 Year</option>
+                <option value=2>Grater than 2 Years</option>
+            </select></td>
+        </tr>
+        <tr><td>Vehicle Damage*</td>
+            <td>
+            <select name="Vehicle_Damage" id="Vehicle_Damage" style="width:168px;text-align-last:center">
+                <option value=0>Not Selected</option>
+                <option value=1>Yes</option>
+                <option value=0>No</option>
+            </select></td>
+        </tr>
+        <tr><td>Annual Premium*</td>
+        <td><input type="text" name="Annual_Premium" id="Annual_Premium" placeholder="Annual_Premium" required="required"size="20" maxlength="20" autofocus="autofocus"  style="width:160px;text-align-last:center" /></td></tr>
+        <tr><td>Policy Sales Channel*</td>
+        <td><input type="text" name="Policy_Sales_Channel" id="Policy_Sales_Channel" placeholder="Policy_Sales_Channel" required="required"size="20" maxlength="20" autofocus="autofocus" style="width:160px;text-align-last:center" /></td></tr>
+        <tr><td>Vintage*</td>
+        <td><input type="text" name="Vintage" placeholder="Vintage" id="Vintage" required="required" style="width:160px;text-align-last:center" /></td>
+        </tr>
+        </table>
 
-
-        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+        <button type="submit" class="btn btn-primary btn-block btn-large" style="background-color:#80acf2">Predict</button>
     </form>
 
    <br>
@@ -36,7 +77,13 @@
 
 
  </div>
- {{prediction_text}}
+ <table>
+     <tr>
+         <td><h2> Response: </h2></td>
+        <td><h3 style="color:red">{{prediction_text}}</h3></td>
+     </tr>
+ </table>
+
 
 </body>
 </html>
